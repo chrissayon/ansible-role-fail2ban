@@ -1,0 +1,11 @@
+---
+- name: install
+  ansible.builtin.apt:
+    name: fail2ban
+    update_cache: true
+
+- name: Ensure fail2ban is started and enabled at boot.
+  service:
+    name: fail2ban
+    state: started
+    enabled: true

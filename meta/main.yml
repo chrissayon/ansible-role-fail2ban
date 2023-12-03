@@ -1,0 +1,11 @@
+galaxy_info:
+  role_name: fail2ban
+  author: chrissayon
+  description: Installs and starts Fail2Ban
+  license: MIT
+  min_ansible_version: 2.1
+  galaxy_tags:
+    - fail2ban
+    - linux
+
+dependencies: []

@@ -4,8 +4,20 @@
     name: fail2ban
     update_cache: true
 
+- name: Copy fail2ban.local to server
+  template:
+    src: "{{ playbook_dir }}/templates/fail2ban.local.j2"
+    dest: "{{ remote_dir }}/fail2ban.local"
+  notify: Restart fail2ban service
+
+- name: Copy jail.local to server
+  template:
+    src: "{{ playbook_dir }}/templates/jail.local.j2"
+    dest: "{{ remote_dir }}/jail.local"
+  notify: Restart fail2ban service
+
 - name: Ensure fail2ban is started and enabled at boot.
-  service:
+  ansible.builtin.service:
     name: fail2ban
     state: started
     enabled: true
